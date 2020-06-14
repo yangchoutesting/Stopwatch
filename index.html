@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StopWatch</title>
+    <link rel="stylesheet" href="text.css" />
+    <script src="stopwatch.js"></script>
+  </head>
+  <body>
+    <!-- comment -->
+
+    <p>
+      This is my <b><i>StopWatch</i></b> practice.
+    </p>
+    <hr />
+    <table class="stopwatchContainer">
+      <tr class="info">
+        <td>StopWatch</td>
+      </tr>
+      <td>
+        <button class="info" onclick="sw.start()">Start</button>
+        <button class="info" onclick="sw.stop()">Stop</button>
+        <button class="info" onclick="sw.reset()">Reset</button>
+      </td>
+      <tr>
+        <td>
+          <p>經過時間: <span id="duration">0.00</span></p>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
