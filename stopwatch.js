@@ -1,49 +1,55 @@
-function Stopwatch() {
-  let startTime,
-    endTime,
-    running,
-    duration = 0;
+class Stopwatch {
+  constructor() {
+    this.startTime;
+    this.endTime;
+    this.isRunning = false;
+    this.duration = 0;
+  }
 
-  this.start = function () {
-    if (running) throw new Error("Stopwatch has already started! ");
+  start() {
+    if (this.isRunning) {
+      throw new Error("Stopwatch has already started! ");
+    }
+    this.displayStart();
+    this.isRunning = true;
+    this.startTime = new Date();
+  }
 
-    running = true;
+  stop() {
+    if (!this.isRunning) {
+      throw new Error("Stopwatch has already stoped! ");
+    }
 
-    startTime = new Date();
-    alert("time start!");
-  };
+    this.isRunning = false;
+    this.endTime = new Date();
+    this.displayStop();
+  }
 
-  this.stop = function () {
-    if (!running) throw new Error("Stopwatch has already stoped! ");
+  reset() {
+    this.startTime = null;
+    this.endTime = null;
+    this.isRunning = false;
+    this.duration = 0;
+    this.displayReset();
+  }
 
-    running = false;
+  displayStart() {
+    document.getElementById("start").innerHTML = "Start";
+    alert("timer start!");
+  }
 
-    endTime = new Date();
+  displayStop() {
+    const seconds = (this.endTime.getTime() - this.startTime.getTime()) / 1000;
+    this.duration += seconds;
+    document.getElementById("stop").innerHTML = "Stop";
+    document.getElementById("display").innerHTML = this.duration;
+    alert("timer stop!");
+  }
 
-    const seconds = (endTime.getTime() - startTime.getTime()) / 1000;
-    duration += seconds;
-    document.getElementById("duration").innerHTML = duration;
-
-    alert("time stop!");
-  };
-
-  this.reset = function () {
-    startTime = null;
-    endTime = null;
-    running = false;
-    duration = 0;
-
-    document.getElementById("duration").innerHTML = 0;
-  };
-
-  Object.defineProperty(this, "duration", {
-    get: function () {
-      alert(duration + " seconds");
-      return duration;
-    },
-  });
+  displayReset() {
+    document.getElementById("reset").innerHTML = "Reset";
+    document.getElementById("display").innerHTML = "00:00:00";
+  }
 }
 
-// create an sw object
-
-sw = new Stopwatch();
+stopwatch = new Stopwatch();

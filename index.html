@@ -4,30 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StopWatch</title>
-    <link rel="stylesheet" href="text.css" />
+
+    <link rel="stylesheet" href="style.css" />
     <script src="stopwatch.js"></script>
   </head>
   <body>
-    <!-- comment -->
+    <p>StopWatch practice.</p>
 
-    <p>
-      This is my <b><i>StopWatch</i></b> practice.
-    </p>
     <hr />
-    <table class="stopwatchContainer">
-      <tr class="info">
-        <td>StopWatch</td>
-      </tr>
-      <td>
-        <button class="info" onclick="sw.start()">Start</button>
-        <button class="info" onclick="sw.stop()">Stop</button>
-        <button class="info" onclick="sw.reset()">Reset</button>
-      </td>
-      <tr>
-        <td>
-          <p>經過時間: <span id="duration">0.00</span></p>
-        </td>
-      </tr>
-    </table>
+
+    <div class="container">
+      <div id="display">00:00:00</div>
+      <div class="buttons">
+        <button id="start" onclick="stopwatch.start()">start</button>
+        <button id="stop" onclick="stopwatch.stop()">stop</button>
+        <button id="reset" onclick="stopwatch.reset()">reset</button>
+      </div>
+    </div>
   </body>
 </html>
